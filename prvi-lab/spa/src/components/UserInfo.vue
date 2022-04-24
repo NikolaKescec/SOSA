@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="authenticated">
     <h2>User Profile</h2>
     <pre>
         <code>{{ user }}</code>
@@ -14,6 +14,11 @@ export default {
     return {
       user: this.$auth0.user,
     };
+  },
+  computed: {
+    authenticated() {
+      return this.$auth0.isAuthenticated.value;
+    },
   },
 };
 </script>

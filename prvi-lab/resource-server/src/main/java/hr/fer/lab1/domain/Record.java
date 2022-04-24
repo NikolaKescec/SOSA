@@ -2,7 +2,12 @@ package hr.fer.lab1.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -10,12 +15,13 @@ import java.util.Date;
 public class Record {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
     private String recordName;
 
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date recordDate;
 
     private String recordOrigin;
@@ -60,4 +66,5 @@ public class Record {
     public void setRecordValue(String recordValue) {
         this.recordValue = recordValue;
     }
+
 }

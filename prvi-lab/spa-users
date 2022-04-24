@@ -1,0 +1,24 @@
+Username:sosa_user_1
+email:sosa1@mail.com
+pass:Password1!
+Permissions: none
+
+Username:sosa_user_2
+email:sosa2@mail.com
+pass:Password2!
+Permissions: read students, read records
+
+Username:sosa_user_3
+email:sosa3@mail.com
+pass:Password3!
+Permissions: read|write students
+
+Username:sosa_user_4
+email:sosa4@mail.com
+pass:Password4!
+Permissions: read|write records
+
+Username:sosa_user_5
+email:sosa5@mail.com
+pass:Password5!
+Permissions: read|write students, read|write records

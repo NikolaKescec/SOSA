@@ -3,7 +3,12 @@ package hr.fer.lab1.rest;
 import hr.fer.lab1.domain.Student;
 import hr.fer.lab1.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -16,14 +21,13 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping("")
-    public List<Student> listStudents(){
+    public List<Student> listStudents() {
         return studentService.listAll();
     }
 
     @PostMapping("")
-    public Student createStudent(@RequestBody Student student){
+    public Student createStudent(@RequestBody Student student) {
         return studentService.createStudent(student);
     }
-
 
 }
