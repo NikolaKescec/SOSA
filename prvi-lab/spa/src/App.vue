@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     async retrieve({ entity }) {
-      console.log(entity);
       const token = await this.$auth0.getAccessTokenSilently();
       try {
         const response = await fetch(`http://localhost:8080/${entity}`, {
@@ -54,8 +53,6 @@ export default {
           },
           mode: "cors",
         });
-
-        console.log(response.status);
 
         if (response.status === 401) {
           this[entity] = `Please login to see the ${entity}!`;
@@ -69,7 +66,6 @@ export default {
       }
     },
     async create({ entity, object }) {
-      console.log(entity, object);
       const token = await this.$auth0.getAccessTokenSilently();
       try {
         const response = await fetch(`http://localhost:8080/${entity}`, {
@@ -82,8 +78,6 @@ export default {
           mode: "cors",
           body: JSON.stringify(object),
         });
-
-        console.log(response.status);
 
         if (response.status === 401) {
           this[entity] = `Please login to create new ${entity}!`;
